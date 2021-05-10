@@ -26,7 +26,7 @@
 					<h2 class="text-white">
 						ticket Page 
 					</h2>
-					<a href="<?php echo BASE_URL;?>" class="btn btn-outline-secondary text-white">Accueil</a>
+					<a href="" class="btn btn-outline-secondary text-white">Accueil</a>
 				</div>
 			</div>
 		</div>

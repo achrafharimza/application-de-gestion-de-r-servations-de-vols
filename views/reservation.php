@@ -5,14 +5,18 @@
 			
          $np=$_POST['np'];
          $idv=$_POST['idv'];
+		 $idvr=$_POST['idvr'];
 		 $dater=$_POST['dater'];
 		
 $count=1;
+ echo"<div class=\"scrold\">";
 echo "<form action=\"ticket\" method=\"post\" ";
 while($count<=$np)
 			{
+				
+			
 					echo "<p><strong>PASSENGER ".$count."<strong></p>";
-					echo "<table cellpadding=\"0\">";
+					echo "	<table class=\"table table-striped table-dark\">";
 					echo "<tr>";
 					echo "<td> Name</td>";
 					echo "<td> Age</td>";
@@ -38,6 +42,7 @@ while($count<=$np)
   					
 					echo "</tr>";
 					
+					echo "<td><input type=\"hidden\" name=\"idvr\" value=\" $idvr\" ></td>";
                    echo "<td><input type=\"hidden\" name=\"idp\" value=\" $idv\" ></td>";
 				   echo "<td><input type=\"hidden\" name=\"np\" value=\" $np\" ></td>";
 				    echo "<td><input type=\"hidden\" name=\"dater\" value=\" $dater\" ></td>";
@@ -52,7 +57,7 @@ while($count<=$np)
 
               echo"</form>";
 
-
+ echo"</div>";
 
 		
 		?>

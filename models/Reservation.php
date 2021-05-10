@@ -2,6 +2,16 @@
 
 class Reservation {
 
+static public function getAll(){
+		
+		$stmt = DB::connect()->prepare('SELECT r.id, u.fullname, v.depart, v.destination ,r.numplace, r.dater FROM reservation r, vol v ,users u where v.idv=r.idv and r.idc=u.idc');
+		$stmt->execute();
+		return $stmt->fetchAll();
+		$stmt->close();
+		$stmt = null;
+	}
+
+
 	
 
 	static public function add($data){
@@ -13,13 +23,44 @@ class Reservation {
 		$stmt->bindParam(':dater',$data['dater']);
 	
 		
-		if($stmt->execute()){
-			return 'ok';
-		}else{
-			return 'error';
-		}
-		$stmt->close();
-		$stmt = null;
+		$stmt->execute();
 	}
+
+static public function getByUser($data){
+	$idc = $data['idc'];
+	$query = 'SELECT * FROM reservation,vol  WHERE reservation.idc=:idc AND reservation.idv=vol.idv';
+			$stmt = DB::connect()->prepare($query);
+			$stmt->execute(array(":idc" => $idc));
+			$reservation = $stmt->fetchAll();
+			return $reservation;
+
+
+	}
+	static public function new($data){
+	$idc = $data['idc'];
+	
+			$stmt = DB::connect()->prepare($query);
+			$stmt->execute(array(":idc" => $idc));
+			$reservation = $stmt->fetchAll();;
+			return $reservation;
+
+
+	}
+
+
+static public function delete($data){
+		$id = $data['id'];
+		try{
+			$query = 'DELETE FROM reservation WHERE id=:id';
+			$stmt = DB::connect()->prepare($query);
+			$stmt->execute(array(":id" => $id));
+			if($stmt->execute()){
+				return 'ok';
+			}
+		}catch(PDOException $ex){
+			echo 'erreur' . $ex->getMessage();
+		}
+	}
+
 	
 }

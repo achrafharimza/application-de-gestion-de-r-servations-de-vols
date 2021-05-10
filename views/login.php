@@ -4,30 +4,41 @@
 		$loginUser->auth();
 	}
 ?>
-<div class="container">
-	<div class="row my-4">
-		<div class="col-md-6 mx-auto">
-			<?php include('./views/includes/alerts.php');?>
-			<div class="card">
-				<div class="card-header">
-					<h3 class="text-center">Connexion</h3>
-				</div>
-				<div class="card-body bg-light">
-			      	<form method="post" class="mr-1">
-			      		<div class="form-group">
-				      		<input type="text" name="email" placeholder="email" class="form-control">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GO FLIGHT</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+<link rel="stylesheet" href="style/sqqaw.css">	
+</head>
+<body >
+
+<div class="pos">
+<div class="login-box">
+  <h2>Login</h2>
+  <?php include('./views/includes/alerts.php');?>
+  <form method="post">
+    <div class="user-box">
+      <input type="text" name="email" required="">
+      <label>email</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="psd" required="">
+      <label>Password</label>
+    </div>
+		<div class="sho">
+							  						  Customer <input type='radio' name='user_type' value='Customer' checked/> Administrator <input type='radio' name='user_type' value='Administrator'/>
+
 				      	</div>
-				      	<div class="form-group">
-				      		<input type="password" name="psd" placeholder="Mot de passe" class="form-control">
-				      	</div>
-						  Customer <input type='radio' name='user_type' value='Customer' checked/> Administrator <input type='radio' name='user_type' value='Administrator'/>
-			      		<button name="submit" class="btn btn-sm btn-primary">Connexion</button>
-			      	</form>
-				</div>
-				<div class="card-footer">
-					<a href="register" class="btn btn-link">Inscription</a>
-				</div>
-			</div>
-		</div>
-	</div>
+   <div class="cen">
+     <button name="submit" class="btn btn-outline-light">Connexion</button>
+	 	<a href="register" class="btn btn-link">Inscription</a>
+   </div>
+  </form>
+  
+				
+				
+</div>
 </div>
